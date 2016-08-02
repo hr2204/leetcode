@@ -23,6 +23,15 @@ class Solution(object):
     def findFirstZero(self,nums):
         return nums.index(0)
 
+    def moveZeroes(self, nums):
+        zero, cur = -1, 0
+        while cur < len(nums):
+            if nums[cur] != 0:
+                # update zero index when current is not zero
+                zero += 1
+                nums[cur], nums[zero] = nums[zero], nums[cur]
+            cur += 1
+
 s = Solution()
 nums = [1]
 s.moveZeroes(nums)
