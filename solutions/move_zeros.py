@@ -22,7 +22,7 @@ class Solution(object):
 
     def findFirstZero(self,nums):
         return nums.index(0)
-
+    # solution 2
     def moveZeroes(self, nums):
         zero, cur = -1, 0
         while cur < len(nums):
