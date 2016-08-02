@@ -39,8 +39,16 @@ class Solution(object):
                 start += 1
         print nums
         return nums.index(val)
-
+    # solution 1
+    def removeElement1(self, A, elem):
+        index = 0
+        for num in A:
+            if num != elem:
+                A[index] = num
+                index += 1
+        print A
+        return index
 
 
 s = Solution()
-print s.removeElement([3, 2, 2, 3], 1)
+print s.removeElement1([3, 2, 2, 3],2)
