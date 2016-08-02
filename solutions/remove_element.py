@@ -24,11 +24,23 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        for i in range(len(nums)):
-            if nums[i] == val:
-                nums.pop(i)
-        return len(nums)
+        if len(nums) == 0: return 0
+        if val not in nums: return len(nums)
+        start = 0
+        end = len(nums) - 1
+        while start < end:
+            if nums[start] == val and nums[end] == val:
+                end -= 1
+            elif nums[start] == val and nums[end] != val:
+                nums[start], nums[end] = nums[end],nums[start]
+            elif nums[start] != val and nums[end] == val:
+                start += 1
+            else:
+                start += 1
+        print nums
+        return nums.index(val)
+
 
 
 s = Solution()
-print s.removeElement([3, 2, 2, 3], 3)
+print s.removeElement([3, 2, 2, 3], 1)
