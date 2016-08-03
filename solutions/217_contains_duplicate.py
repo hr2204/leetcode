@@ -18,9 +18,16 @@ class Solution(object):
         # return False
 
         # Solution 2: Correct
-        return len(nums)!= len(set(nums))
+        # return len(nums)!= len(set(nums))
 
 
+        # Solution 3: Correct
+        numSet = set()
+        for i in nums:
+            if i in numSet:
+                return True
+            numSet.add(i)
+        return False
 
 s = Solution()
 print s.containsDuplicate([1,2,3,1])
