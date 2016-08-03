@@ -20,13 +20,12 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        for i in nums:
-            if target - i in nums and i != target/2:
-                res.append(nums.index(i))
-                res.append( nums.index(target - i))
-                break
+        for i, num in enumerate(nums):
+            if target - num in nums[i+1:]:
+                res.append(i)
+                res.append(nums[i+1:].index(target - num)+i+1)
         return res
 
 
 s = Solution()
-print s.twoSum([3,2,4], 6)
+print s.twoSum([3,2,4],6)
