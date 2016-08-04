@@ -16,3 +16,9 @@ print my_list
 
 replace(my_list)
 print my_list
+
+
+
+if __name__ == "__main__":
+    # assert Solution().rotate([1,2,3,4,5,6,7])
+    Solution().rotate([1,2],1)
