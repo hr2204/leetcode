@@ -23,14 +23,14 @@ class Solution(object):
         res = []
         if numRows <= 0:
             return res
-        res = [[] for i in range(0, numRows)]
-        res[0] = [1]
+        res.append([1])
         if numRows == 1:
             return res
-        res[1] = [1,1]
+        res.append([1,1])
         if numRows == 2:
             return res
         for row in range(2, numRows):
+            res.append([])
             res[row].append(1)
             for col in range(1,row):
                 res[row].append(res[row-1][col-1] + res[row-1][col])
