@@ -10,23 +10,37 @@ class Solution(object):
         :type k: int
         :rtype: bool
         """
-        if len(nums) == 0 or len(nums) == 1: return False
-        if k>=len(nums):
-            return self.containsDuplicate(nums)
-        else:
-            for i in range(0,len(nums)-k+1):
-               if self.containsDuplicate(nums[i:i+k+1]):
-                    return True
+        numDict = dict()
+        for i in range(len(nums)):
+            idx = numDict.get(nums[i])
+            if idx>=0 and i - idx <=k:
+                return True
+            numDict[nums[i]] = i
         return False
-
-
-
-    def containsDuplicate(self,nums):
-        return len(nums)!=len(set(nums))
+    # Solution 1: too slow
+    # def containsNearbyDuplicate(self, nums, k):
+    #     """
+    #     :type nums: List[int]
+    #     :type k: int
+    #     :rtype: bool
+    #     """
+    #     if len(nums) == 0 or len(nums) == 1: return False
+    #     if k>=len(nums):
+    #         return self.containsDuplicate(nums)
+    #     else:
+    #         for i in range(0,len(nums)-k+1):
+    #            if self.containsDuplicate(nums[i:i+k+1]):
+    #                 return True
+    #     return False
+    #
+    #
+    #
+    # def containsDuplicate(self,nums):
+    #     return len(nums)!=len(set(nums))
 
 
 s = Solution()
-print s.containsNearbyDuplicate([2,2],1)
+print s.containsNearbyDuplicate([2,1,2],1)
 
 
         # wrong
