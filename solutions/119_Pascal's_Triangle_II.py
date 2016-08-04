@@ -28,3 +28,6 @@ class Solution(object):
 s = Solution()
 
 print s.getRow(4)
+
+if __name__ == "__main__":
+    assert Solution().getRow(3) == [1, 3, 3, 1]
