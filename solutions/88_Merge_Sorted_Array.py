@@ -16,6 +16,29 @@ class Solution(object):
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
+        idx = m + n - 1
+        idxM = m - 1
+        idxN = n - 1
+        while idxM>=0 and idxN >=0:
+            if nums1[idxM] > nums1[idxN]:
+                nums1[idx] = nums1[idxM]
+                idxM -= 1
+            else:
+                nums1[idx] = nums1[idx]
+                idxN -= 1
+        if m < 0:
+            nums1[:idx] = nums2[idxN]
+        if n < 0:
+            nums1[:idx] = nums1[:idxM]
+
+    def merge_lazyVersion(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: void Do not return anything, modify nums1 in-place instead.
+        """
         nums1[:] = nums1[:m]
         nums1[:] = nums1 + nums2
         nums1[:].sort()
