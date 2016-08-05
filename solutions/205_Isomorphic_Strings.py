@@ -24,11 +24,29 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        sDict = dict()
+        tDict = dict()
+
+        if len(s)!= len(t):
+            return False
+        for i in range(len(s)):
+            sChar = s[i]
+            tChar = t[i]
+            if sChar in sDict:
+                if sDict[sChar] != tChar:
+                    return False
+            if tChar in tDict:
+                if tDict[tChar] != sChar:
+                    return False
+            sDict[sChar] = tChar
+            tDict[tChar] = sChar
+
+        return True
 
 
 if __name__ == "__main__":
     # assert Solution().rotate([1,2,3,4,5,6,7])
-    assert Solution().isIsomorphic("egg", "add") == True
-    assert Solution().isIsomorphic("foo", "bar") == False
+    assert Solution().isIsomorphic("abbc", "ca") == False
+    assert Solution().isIsomorphic("foo", "baa") == True
 
 
