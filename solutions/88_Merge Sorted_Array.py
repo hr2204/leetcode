@@ -16,3 +16,10 @@ class Solution(object):
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
+        nums1[:] = nums1[:m]
+        nums1[:] = nums1 + nums2
+        nums1[:].sort()
+
+if __name__ == "__main__":
+    # assert Solution().rotate([1,2,3,4,5,6,7])
+    Solution().merge([1], 1,[0],0)
