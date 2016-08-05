@@ -27,8 +27,24 @@ class Solution(object):
         nums = nums[idx+1:] + nums[:idx+1]
         print nums
 
+    def rotate2(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+
+        k = k%len(nums)
+        while k > 0:
+            nums.insert(0,nums[-1])
+            nums.pop()
+            k -= 1
+
+        print nums
+
+
 
 
 if __name__ == "__main__":
     # assert Solution().rotate([1,2,3,4,5,6,7])
-    Solution().rotate([1,2],1)
+    Solution().rotate2([1,2,3],4)
