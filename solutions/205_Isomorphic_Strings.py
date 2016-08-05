@@ -24,3 +24,11 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+
+
+if __name__ == "__main__":
+    # assert Solution().rotate([1,2,3,4,5,6,7])
+    assert Solution().isIsomorphic("egg", "add") == True
+    assert Solution().isIsomorphic("foo", "bar") == False
+
+
