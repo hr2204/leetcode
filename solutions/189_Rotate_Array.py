@@ -22,9 +22,9 @@ class Solution(object):
         :type k: int
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        idx = len(nums) - k - 1
+        idx = len(nums) - k
         print idx
-        nums = nums[idx+1:] + nums[:idx+1]
+        nums = nums[idx:] + nums[:idx]
         print nums
 
     def rotate2(self, nums, k):
@@ -42,9 +42,11 @@ class Solution(object):
 
         print nums
 
-
-
-
+    def rotate3(self, nums, k):
+        idx = len(nums) - k
+        nums[:] = nums[:idx][::-1] + nums[idx:][::-1]
+        nums[:] = nums[:][::-1]
+        print nums
 if __name__ == "__main__":
     # assert Solution().rotate([1,2,3,4,5,6,7])
-    Solution().rotate2([1,2,3],4)
+    Solution().rotate3([1,2,3,4,5],2)
