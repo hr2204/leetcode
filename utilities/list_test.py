@@ -28,7 +28,4 @@ s = "123"
 print list(s)
 
 if __name__ == "__main__":
-    # assert Solution().rotate([1,2,3,4,5,6,7])
-    # Solution().rotate([1, 2], 1)
-    s = str(123)
-    print list(s),2/10
+    assert Solution().rotate([1,2,3,4,5,6,7])
