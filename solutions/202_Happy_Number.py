@@ -17,8 +17,28 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
+        numSet = set()
+        return self.helper(n,numSet)
+    def helper(self,n,numSet):
+        if n == 1:
+            return True
+        elif n in numSet:
+            return False
+        else:
+            numSet.add(n)
+
+            if n < 10:
+                n = n * n
+                return self.helper(n,numSet)
+            else:
+                temp = 0
+                while n/10 > 0:
+                    temp += (n%10)*(n%10)
+                    n /=10
+                temp += n * n
+                return self.helper(temp,numSet)
 
 
 if __name__ == "__main__":
     # assert Solution().rotate([1,2,3,4,5,6,7])
-    Solution().rotate([1, 2], 1)
+    assert Solution().isHappy(7) == True
