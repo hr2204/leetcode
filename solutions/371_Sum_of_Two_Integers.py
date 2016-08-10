@@ -8,7 +8,20 @@
 
 
 class Solution(object):
-    # Error: RuntimeError: maximum recursion depth exceeded in cmp
+    # Accepted
+    def getSum(self, a, b):
+        """
+        :type a: int
+        :type b: int
+        :rtype: int
+        """
+        MAX_INT = 0x7FFFFFFF
+        MIN_INT = 0x80000000
+        MASK = 0x100000000
+        while b:
+            a, b = (a ^ b) % MASK, ((a & b) << 1) % MASK
+        return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
+    # Error: Time Limit Exceeded
     def getSum(self, a, b):
         """
         :type a: int
@@ -21,7 +34,7 @@ class Solution(object):
             b = carry
         return a
 
-
+    # Error: RuntimeError: maximum recursion depth exceeded in cmp
     def getSum_1(self, a, b):
         """
         :type a: int
