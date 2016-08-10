@@ -37,7 +37,17 @@ class Solution(object):
                     n /=10
                 temp += n * n
                 return self.helper(temp,numSet)
-
+    def isHappy(self, n):
+        numSet = set()
+        while n != 1 and n not in numSet:
+            numSet.add(n)
+            sum = 0
+            while n:
+                digit = n % 10
+                sum += digit * digit
+                n /= 10
+            n = sum
+        return n == 1
 
 if __name__ == "__main__":
     # assert Solution().rotate([1,2,3,4,5,6,7])
