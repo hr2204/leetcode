@@ -21,8 +21,33 @@
 # In this case, the 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return "1A1B".
 # You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
 
+import collections, operator
 
 class Solution(object):
+    def getHint(self, secret, guess):
+        """
+        :type secret: str
+        :type guess: str
+        :rtype: str
+        """
+        bull = sum(map(operator.eq, secret, guess))
+        sa = collections.Counter(secret)
+        sb = collections.Counter(guess)
+        cow = sum((sa & sb).values()) - bull
+        return str(bull) + 'A' + str(cow) + 'B'
+
+    def getHint(self, secret, guess):
+        """
+        :type secret: str
+        :type guess: str
+        :rtype: str
+        """
+        bull = sum(map(operator.eq, secret, guess))
+        sa = collections.Counter(secret)
+        sb = collections.Counter(guess)
+        cow = sum((sa & sb).values()) - bull
+        return str(bull) + 'A' + str(cow) + 'B'
+
     def getHint(self, secret, guess):
         """
         :type secret: str
