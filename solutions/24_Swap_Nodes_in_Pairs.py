@@ -23,7 +23,26 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        if head is None:
+            return
+        if head.next is None:
+            return head
+        last = ListNode(0)
+        newHead = head.next
+        cur = head
+        while cur and cur.next:
+            next = cur.next.next
+            last.next = cur.next
+            cur.next.next = cur
+            cur.next = None
+            last = cur
+            cur = next
+            if next is not None and next.next is None:
+                last.next = next
+        return newHead
+
+
 if __name__ == "__main__":
-    a = generate_list([1, 2, 3, 4])
+    a = generate_list([1])
     head = Solution().swapPairs(a)
     printNode(head)
