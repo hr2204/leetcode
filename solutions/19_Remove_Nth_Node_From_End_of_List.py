@@ -21,7 +21,7 @@
 from data_structure.list_node import ListNode
 from utilities.linked_list import generate_list, printNode
 class Solution(object):
-    def removeNthFromEnd(self, head, n):
+    def removeNthFromEnd_my(self, head, n):
         """
         :type head: ListNode
         :type n: int
@@ -45,8 +45,23 @@ class Solution(object):
             n -= 1
         p1.next = p1.next.next
         return head
+    # one pass solution
+    def removeNthFromEnd(self, head, n):
+        dummyNode= ListNode(0)
+        dummyNode.next = head
+        fast = dummyNode
+        while n>0:
+            fast = fast.next
+            n -=1
+        # print fast.val
+        slow = dummyNode
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        slow.next = slow.next.next
+        return dummyNode.next
 
 if __name__ == "__main__":
-    a = generate_list([1,2,3,4])
-    head = Solution().removeNthFromEnd(a,4)
+    a = generate_list([1])
+    head = Solution().removeNthFromEnd(a,1)
     printNode(head)
