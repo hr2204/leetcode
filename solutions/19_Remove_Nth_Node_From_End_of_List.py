@@ -47,7 +47,7 @@ class Solution(object):
         return head
     # one pass solution
     def removeNthFromEnd(self, head, n):
-        dummyNode= ListNode(0)
+        dummyNode= ListNode(10)
         dummyNode.next = head
         fast = dummyNode
         while n>0:
