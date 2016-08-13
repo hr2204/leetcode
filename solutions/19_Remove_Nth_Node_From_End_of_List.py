@@ -30,7 +30,7 @@ class Solution(object):
         if head is None:
             return
         len = 0
-        dummyNode = ListNode(0)
+        dummyNode = ListNode(1)
         dummyNode.next = head
         p1 = dummyNode
         while p1:
