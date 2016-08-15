@@ -1,6 +1,6 @@
 
 
-fileName = " 21. Merge Two Sorted Lists  "
+fileName = " 21. Merge Two Sorted Lists "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
