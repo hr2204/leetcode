@@ -1,6 +1,6 @@
 
 
-fileName = "       263. Ugly Number     "
+fileName = "      67. Add Binary    "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
