@@ -1,4 +1,4 @@
-# 168. Excel Sheet Column Title  Q
+# 168. Excel Sheet Column Title
 # Difficulty: Easy
 # Given a positive integer, return its corresponding column title as appear in an Excel sheet.
 #
@@ -20,13 +20,14 @@ class Solution(object):
         :rtype: str
         """
         res = ""
-        while n > 0 :
+        while n:
             if n%26 == 0:
                 res += str(unichr(90))
-                n= (n-n%26)/26 - 1
+                n = n/26 - 1
             else:
                 res += str(unichr((n%26) + 64))
-                n= (n-n%26)/26
+                n = n/26
+
         return res[::-1]
 if __name__ == '__main__':
     print Solution().convertToTitle(702)
