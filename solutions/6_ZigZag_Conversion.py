@@ -14,9 +14,33 @@
 
 
 class Solution(object):
+    def convert(self, s, numRows):
+        if len(s) == 0:
+            return ""
+        if numRows == 1:
+            return s
+        res = ""
+        modNum = 2 * numRows- 2
+
+        # for j in range(modNum):
+        # for i in range(0,len(s),modNum):
+        #     res += s[i]
+
+        for row in range(numRows):
+            if row == 0 or row == numRows - 1:
+                for i in range(row,len(s),modNum):
+                    res += s[i]
+
+            else:
+                for i in range(row,len(s),modNum):
+                    res += s[i]
+                    j = i + (numRows-row - 1)*2
+                    if j<len(s):
+                        res += s[j]
+        return res
 
     # TLE
-    def convert(self, s, numRows):
+    def convert_TLE(self, s, numRows):
         """
         :type s: str
         :type numRows: int
@@ -44,4 +68,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print Solution().convert("A",1)
+    print Solution().convert("PAYPALISHIRING",3)
