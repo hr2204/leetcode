@@ -10,7 +10,23 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+        if len(s) == 0 or len(s) == 1 or len(s)%2 == 1:
+            return False
+        list_1 = list()
+        for i in s:
+            if i == "(" or i == "[" or i == "{":
+                list_1.append(i)
+            if i == ")":
+                if len(list_1) == 0 or list_1.pop()!="(":
+                    return False
+            if i == "]":
+                if len(list_1) == 0 or list_1.pop()!="[":
+                    return False
+            if i == "}":
+                if len(list_1) == 0 or list_1.pop()!="{":
+                    return False
 
+        return len(list_1) == 0
 if __name__ == '__main__':
-    print Solution().isValid("{[]])")
+    print Solution().isValid("[")
     print Solution().isValid("{[]}")
