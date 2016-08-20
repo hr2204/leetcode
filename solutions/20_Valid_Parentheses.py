@@ -5,6 +5,7 @@
 # The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
 class Solution(object):
+    class Solution(object):
     def isValid(self, s):
         """
         :type s: str
@@ -16,14 +17,14 @@ class Solution(object):
         for i in s:
             if i == "(" or i == "[" or i == "{":
                 list_1.append(i)
-            if i == ")":
-                if len(list_1) == 0 or list_1.pop()!="(":
+            if len(list_1) == 0:
+                return False
+            else:
+                if i == ")" and list_1.pop()!="(":
                     return False
-            if i == "]":
-                if len(list_1) == 0 or list_1.pop()!="[":
+                if i == "]" and list_1.pop()!="[":
                     return False
-            if i == "}":
-                if len(list_1) == 0 or list_1.pop()!="{":
+                if i == "}" and list_1.pop()!="{":
                     return False
 
         return len(list_1) == 0
