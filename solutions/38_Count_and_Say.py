@@ -17,8 +17,34 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        # if n == "1":
+        #     return n
+        temp = "1"
+        idx = int(n) -1
+        while idx > 0:
+            temp = self.helper(temp)
+            idx -= 1
+
+        return temp
+
+    def helper(self,n):
+        res = ""
+        start = 0
+        count = 1
+        end = start + 1
+        while end <= len(n):
+            if end == len(n) or n[end] != n[start]:
+                res += str(count) + n[start]
+                start = end
+                end += 1
+                count = 1
+            else:
+                count += 1
+                end += 1
+        return res
+
 
 if __name__ == '__main__':
+    # print Solution().countAndSay("1")
     print Solution().countAndSay("1")
-
     print Solution().countAndSay("2")
