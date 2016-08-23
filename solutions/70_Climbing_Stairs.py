@@ -18,7 +18,6 @@ class Solution(object):
             return num_1
         if n == 2:
             return num_2
-        res = 3
         for i in range(3,n+1):
             res = num_1 + num_2
             num_1 = num_2
