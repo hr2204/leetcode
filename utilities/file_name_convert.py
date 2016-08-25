@@ -1,6 +1,6 @@
 
 
-fileName = "   303. Range Sum Query - Immutable  "
+fileName = "  155. Min Stack "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
