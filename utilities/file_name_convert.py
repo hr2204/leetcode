@@ -1,6 +1,6 @@
 
 
-fileName = "  155. Min Stack "
+fileName = "  101. Symmetric Tree "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
