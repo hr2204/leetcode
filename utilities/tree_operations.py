@@ -16,10 +16,40 @@ def generateTree(treeList):
 
     return root
 
+def generateTree(nums):
+    stack =[]
+    while len(nums)>0:
+        node = queue[0]
+        queue.pop(0)
+        node.val = treeList[0]
+        treeList.pop(0)
+        node.left = TreeNode("")
+        node.right= TreeNode("")
+        queue.append(node.left)
+        queue.append(node.right)
+
+    return root
 
 root = generateTree([1,2,3,4,5,6])
 
-def printTree(head):
+
+def printTree(root):
+    queue = list()
+    queue.append(root)
+    res = []
+    while queue:
+        rowVal = []
+        tmpRow = []
+        for node in queue:
+            rowVal.append(node.val)
+            tmpRow.append(node.left)
+            tmpRow.append(node.right)
+        queue = tmpRow
+        res.append(rowVal)
+    return res
+
+
+def printTree_1(head):
 
     queue = list()
     queue.append(head)
@@ -28,9 +58,9 @@ def printTree(head):
         if cur.val!="":
             print cur.val
         queue.pop(0)
-        if cur.left is not None:
+        if cur.left:
             queue.append(cur.left)
-        if cur.right is not None:
+        if cur.right:
             queue.append(cur.right)
 
 printTree(root)
