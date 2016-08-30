@@ -1,5 +1,33 @@
 from data_structure.tree_node import TreeNode
 
+def build_tree(nums):
+    if not nums:
+        return None
+
+    root = TreeNode(nums.pop(0))
+
+    stack = [root]
+    while stack and nums:
+        new_stack = []
+        for i in xrange(len(stack)):
+            if len(nums) <= 0:
+                return root
+            else:
+                left = TreeNode(nums.pop(0))
+                stack[i].left = left
+                new_stack.append(left)
+
+            if len(nums) <= 0:
+                return root
+            else:
+                right = TreeNode(nums.pop(0))
+                stack[i].right = right
+                new_stack.append(right)
+        stack = new_stack
+
+    return root
+
+
 def generateTree(treeList):
     root = TreeNode("")
     queue = list()
@@ -16,21 +44,8 @@ def generateTree(treeList):
 
     return root
 
-def generateTree(nums):
-    stack =[]
-    while len(nums)>0:
-        node = queue[0]
-        queue.pop(0)
-        node.val = treeList[0]
-        treeList.pop(0)
-        node.left = TreeNode("")
-        node.right= TreeNode("")
-        queue.append(node.left)
-        queue.append(node.right)
 
-    return root
-
-root = generateTree([1,2,3,4,5,6])
+# root = build_tree([1,2,3,4,5,6])
 
 
 def printTree(root):
@@ -41,12 +56,15 @@ def printTree(root):
         rowVal = []
         tmpRow = []
         for node in queue:
-            rowVal.append(node.val)
-            tmpRow.append(node.left)
-            tmpRow.append(node.right)
+            if node:
+                rowVal.append(node.val)
+                tmpRow.append(node.left)
+                tmpRow.append(node.right)
         queue = tmpRow
-        res.append(rowVal)
-    return res
+        if rowVal:
+            res.append(rowVal)
+    for i in res:
+        print i
 
 
 def printTree_1(head):
@@ -63,4 +81,6 @@ def printTree_1(head):
         if cur.right:
             queue.append(cur.right)
 
-printTree(root)
+# printTree(root)
+# for i in res:
+#     print i
