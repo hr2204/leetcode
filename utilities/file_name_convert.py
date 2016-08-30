@@ -1,6 +1,6 @@
 
 
-fileName = " 112. Path Sum "
+fileName = " 100. Same Tree "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
