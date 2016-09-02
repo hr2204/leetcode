@@ -3,9 +3,6 @@
 # Given a binary tree, find its minimum depth.
 #
 # The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
-#
-# Subscribe to see which companies asked this question
-
 
 # Definition for a binary tree node.
 # class TreeNode(object):
