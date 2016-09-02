@@ -33,6 +33,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
+        if not root:
+            return
         self.helper(root)
         return root
     def helper(self,root):
