@@ -25,6 +25,7 @@ from data_structure.tree_node import TreeNode
 from utilities.tree_operations import printTree,build_tree
 
 class Solution(object):
+
     def preorderTraversal(self, root):
         """
         :type root: TreeNode
@@ -34,8 +35,30 @@ class Solution(object):
         res = []
         if not root:
             return res
-        self.helper(root,res)
 
+        stack = []
+        stack.append(root)
+
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return res
+
+
+    def preorderTraversal_recursive(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+
+        res = []
+        if not root:
+            return res
+        self.helper(root,res)
         return res
 
     def helper(self,root,res):
