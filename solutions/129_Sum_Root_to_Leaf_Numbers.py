@@ -42,16 +42,12 @@ class Solution(object):
     def helper(self,root,res,pathSum):
         if not root.left and not root.right:
             res.append( pathSum * 10 + root.val)
-        elif root.left and not root.right:
-            pathSum = pathSum * 10 + root.val
-            self.helper(root.left,res,pathSum)
-        elif root.right and not root.left:
-            pathSum = pathSum * 10 + root.val
-            self.helper(root.right,res,pathSum)
         else:
             pathSum = pathSum * 10 + root.val
-            self.helper(root.right,res,pathSum)
-            self.helper(root.left,res,pathSum)
+            if root.left:
+                self.helper(root.left,res,pathSum)
+            if root.right:
+                self.helper(root.right,res,pathSum)
 
 
 
