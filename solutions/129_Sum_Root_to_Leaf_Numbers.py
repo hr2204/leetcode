@@ -27,6 +27,17 @@ from data_structure.tree_node import TreeNode
 from utilities.tree_operations import printTree,build_tree
 
 class Solution(object):
+
+    def sum_rock(self, root, preSum):
+        if root==None: return 0
+        preSum = preSum*10 + root.val
+        if root.left==None and root.right==None: return preSum
+        return self.sum(root.left, preSum)+self.sum(root.right, preSum)
+
+    def sumNumbers_rock(self, root):
+        return self.sum(root, 0)
+
+
     def sumNumbers(self, root):
         """
         :type root: TreeNode
