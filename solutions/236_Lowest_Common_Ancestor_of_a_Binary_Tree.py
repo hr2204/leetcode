@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # 236. Lowest Common Ancestor of a Binary Tree
 # Difficulty: Medium
 # Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
@@ -33,48 +34,44 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if p.val<root.val and q.val < root.val:
-            return self.lowestCommonAncestor(root.left, p, q)
-        elif p.val>root.val and q.val > root.val:
-            return self.lowestCommonAncestor(root.right, p, q)
-        else:
+        if not root:
+            return
+        if root == p or root == q:
             return root
-
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
-        if p == root:
-            return p
-        if q == root:
+        list1,list2 = [],[]
+        self.getLeafToRootPath(root,p,list1)
+        self.getLeafToRootPath(root,q,list2)
+        if q in list1:
             return q
-        if self.isContainNode(root.left,p) and self.isContainNode(root.right,q):
-            return root
-        if self.isContainNode(root.right,p) and self.isContainNode(root.left,q):
-            return root
-        if self.isContainNode(root.left,p) and self.isContainNode(root.left,q):
-            return self.lowestCommonAncestor(root.left,p,q)
-        if self.isContainNode(root.right,p) and self.isContainNode(root.right,q):
-            return self.lowestCommonAncestor(root.right,p,q)
+        if p in list2:
+            return p
+        print list1
+        print list2
 
-    def isContainNode(self,root,node):
+        for node in list1:
+            if node in list2:
+                return node
+
+
+
+    def getLeafToRootPath(self,root,node,path):
         if not root:
             return False
-        if root == node:
+        if root == node or self.getLeafToRootPath(root.left,node,path) or self.getLeafToRootPath(root.right,node,path):
+            path.append(root)
             return True
-        else:
-            return self.isContainNode(root.left,node) or self.isContainNode(root.right,node)
+        return False
+
 
 if __name__ == '__main__':
-    root = build_tree([6,2,8,0,4,7,9,"",3,5])
+    root = build_tree([3,5,1,6,2,0,8,"","",7,4])
     printTree(root)
-    k = TreeNode(2)
     # print Solution().isContainNode(root,k)
-
-    p = root.left.left #2
-    q = root.left.right.left #3
-
-    print Solution().lowestCommonAncestor(root,p,q).val
+    p = root.left.left #6
+    q = root.left.right.left #7
+    list = []
+    Solution().getLeafToRootPath(root,p,list)
+    print list
+    for node in list:
+        print node.val
+    print Solution().lowestCommonAncestor(root,p,q).val #5
