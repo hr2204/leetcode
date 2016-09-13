@@ -22,18 +22,33 @@ class BSTIterator(object):
         """
         :type root: TreeNode
         """
+        self.list = []
+        self.index = -1
+        self.inorderTraversal(root,self.list)
+
+    def inorderTraversal(self,root,list):
+        if not root:
+            return
+        self.inorderTraversal(root.left,list)
+        list.append(root.val)
+        self.inorderTraversal(root.right,list)
 
 
     def hasNext(self):
         """
         :rtype: bool
         """
-
+        if self.index<len(self.list)-1:
+            return True
+        else:
+            return False
 
     def next(self):
         """
         :rtype: int
         """
+        self.index += 1
+        return self.list[self.index]
 
 
 # Your BSTIterator will be called like this:
@@ -44,6 +59,7 @@ if __name__ == '__main__':
     root = build_tree([4,2,7,1,3,6,9,5,6])
     printTree(root)
     i, v = BSTIterator(root), []
+    print i.list
     while i.hasNext():
         v.append(i.next())
     print v

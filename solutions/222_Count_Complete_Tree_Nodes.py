@@ -17,8 +17,6 @@ from data_structure.tree_node import TreeNode
 from utilities.tree_operations import printTree,build_tree
 from math import pow
 class Solution(object):
-
-    class Solution:
     # @param {TreeNode} root
     # @return {integer}
     def countNodes(self, root):
