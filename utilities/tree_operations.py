@@ -13,16 +13,22 @@ def build_tree(nums):
             if len(nums) <= 0:
                 return root
             else:
-                left = TreeNode(nums.pop(0))
-                stack[i].left = left
-                new_stack.append(left)
-
+                if nums[0]:
+                    left = TreeNode(nums.pop(0))
+                    stack[i].left = left
+                    new_stack.append(left)
+                else:
+                    nums.pop(0)
             if len(nums) <= 0:
                 return root
             else:
-                right = TreeNode(nums.pop(0))
-                stack[i].right = right
-                new_stack.append(right)
+                if nums[0]:
+                    right = TreeNode(nums.pop(0))
+                    stack[i].right = right
+                    new_stack.append(right)
+                else:
+                    nums.pop(0)
+
         stack = new_stack
 
     return root

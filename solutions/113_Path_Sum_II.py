@@ -1,4 +1,4 @@
-# 113. Path Sum II  QuestionEditorial
+# 113. Path Sum II
 # Difficulty: Medium
 # Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
 #
@@ -34,8 +34,25 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
+        res = []
+        tmpPath = []
+        if not root:
+            return res
+
+        self.helper(root,res,tmpPath,sum)
+        return res
+
+    def helper(self,root,res,tmpPath,sum):
+        tmpPath = tmpPath + [root.val]
+        if root.val == sum and not root.left and not root.right:
+            res.append(tmpPath)
+        if root.left:
+            self.helper(root.left,res,tmpPath,sum-root.val)
+        if root.right:
+            self.helper(root.right,res,tmpPath,sum-root.val)
+
 
 if __name__ == '__main__':
-    head = build_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
+    head = build_tree([-2,None,-3])
     printTree(head)
-    print Solution().pathSum(head,7)
+    print Solution().pathSum(head,-5)
