@@ -19,8 +19,15 @@ class Solution(object):
         :type inorder: List[int]
         :rtype: TreeNode
         """
+        if inorder:
+            index = inorder.index(preorder[0])
+            del preorder[0]
+            root = TreeNode(inorder[index])
+            root.left = self.buildTree(preorder, inorder[:index])
+            root.right = self.buildTree(preorder, inorder[index + 1:])
+            return root
 
 
 if __name__ == '__main__':
-    root = Solution().buildTree([1,3,4,4])
+    root = Solution().buildTree([1,4,2,3],[1,2,3,4])
     printTree(root)
