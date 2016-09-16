@@ -53,6 +53,6 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    head = build_tree([-2,None,-3])
+    head = build_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
     printTree(head)
-    print Solution().pathSum(head,-5)
+    print Solution().pathSum(head,22)
