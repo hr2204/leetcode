@@ -52,18 +52,7 @@ class Solution(object):
             if not stack:
                 return i
         return endIdx
-    # def dfs(self,s,res):
-    #     index = 1
-    #     num = s[0]
-    #     temp = ""
-    #     while index < len(s):
-    #         if s[index].isdigit():
-    #             temp += self.dfs(s,res)
-    #         else:
-    #             temp += s[index]
-    #             index += 1
-    #
-    #     return num * temp
+
 
 if __name__ == '__main__':
     print Solution().decodeString("3[a2[c]]")
