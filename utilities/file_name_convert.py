@@ -1,6 +1,6 @@
 
 
-fileName = " 228. Summary Ranges       "
+fileName = " 153. Find Minimum in Rotated Sorted Array      "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
