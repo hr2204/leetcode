@@ -23,6 +23,40 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
+        res = False
+        if not matrix:
+            return res
+        num_row = len(matrix)
+        num_col = len(matrix[0])
+        if target < matrix[0][0] or target > matrix[num_row-1][num_col-1]:
+            return False
+
+        first_col = [row[0] for row in matrix]
+
+
+    def binray_search_with_range(self,row,target):
+        start, end = 0,len(row) - 1
+        while start <= end:
+            mid = start + (end - start)/2
+            if row[mid]<=target<row[mid+1]:
+                return mid
+            elif target < row[mid]:
+                end = mid
+            else:
+                start = mid
+        return -1
+
+    def binary_search(self,row,target):
+        start, end = 0,len(row) - 1
+        while start <= end:
+            mid = start + (end - start)/2
+            if target == row[mid]:
+                return mid
+            elif target < row[mid]:
+                end = mid
+            else:
+                start = mid
+        return -1
 
 if __name__ == '__main__':
     matrix = [
@@ -30,4 +64,5 @@ if __name__ == '__main__':
       [10, 11, 16, 20],
       [23, 30, 34, 50]
     ]
-    print Solution().searchMatrix(matrix,3)
+    # print Solution().searchMatrix(matrix,3)
+    print Solution().binray_search_with_range([1,2,3,4],4)
