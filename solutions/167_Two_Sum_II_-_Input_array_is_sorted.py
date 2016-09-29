@@ -18,15 +18,37 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        for num in numbers:
-            if num < target and self.binary_search(target-numbers)>0:
-
+        checked = []
+        for i,num in enumerate(numbers):
+            if num <= target and num not in checked:
+                checked.append(num)
+                idx = self.binary_search(numbers[i:],target-num)
+                if idx>0:
+                    res.append(i+1)
+                    res.append(i+idx+1)
+                    break
         return res
 
 
     def binary_search(self,nums,target):
-
+        start, end = 0, len(nums) - 1
+        while start + 1 < end:
+            mid = start + (end - start)/2
+            if nums[mid] == target:
+                return mid
+            if nums[mid]<target:
+                start = mid
+            else:
+                end = mid
+        if nums[start] == target:
+            return start
+        if nums[end] == target:
+            return end
         return -1
 
 if __name__ == '__main__':
-    print Solution().twoSum([2,7,11,15],9) == [1,2]
+    # print Solution().binary_search([2,7,11,15],11)
+
+    print Solution().twoSum([5,25,75],100) == [2,3]
+
+    print Solution().twoSum([0,0,3,4],0) == [1,2]
