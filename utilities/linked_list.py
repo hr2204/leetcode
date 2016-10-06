@@ -1,10 +1,11 @@
 from data_structure.list_node import ListNode
 
 def printNode(head):
+    res = []
     while head:
-        print head.val
+        res.append(str(head.val))
         head = head.next
-
+    print "->".join(res)
 def generate_list(nums):
     head = ListNode(0)
     curr = head
