@@ -1,6 +1,4 @@
-# 318. Maximum Product of Word Lengths   QuestionEditorial Solution  My Submissions
-# Total Accepted: 36277
-# Total Submissions: 87399
+# 318. Maximum Product of Word Lengths
 # Difficulty: Medium
 # Contributors: Admin
 # Given a string array words, find the maximum value of length(word[i]) * length(word[j])
