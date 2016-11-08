@@ -8,7 +8,7 @@
 #
 # s = "loveleetcode",
 # return 2.
-
+import collections
 
 class Solution(object):
     def firstUniqChar(self, s):
@@ -16,14 +16,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        temp = 0
+        c = collections.Counter(s)
+        print c
+
         for idx,char in enumerate(s):
-            pre = temp
-            temp |=1 << (ord(char) - 97)
-            if temp == pre:
+            if c[char] == 1:
                 return idx
         return -1
-
 if __name__ == '__main__':
     s = "leetcode"
     print Solution().firstUniqChar(s)
