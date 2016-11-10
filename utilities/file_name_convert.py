@@ -1,6 +1,6 @@
 
 
-fileName = "  22. Generate Parentheses    "
+fileName = " 412. Fizz Buzz    "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
