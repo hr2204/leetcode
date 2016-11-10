@@ -45,7 +45,7 @@ class Solution(object):
             more_than = (n - total_num)/(num_of_digit)
             digit = num_of_digit
         number = more_than + pow(10,num_of_digit-1) - 1
-        print number, digit,total_num
+        print more_than,number, digit,total_num
 
         return (number/pow(10,num_of_digit-digit))%10
 
@@ -57,4 +57,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print Solution().findNthDigit(100)
+    print Solution().findNthDigit(1000)
