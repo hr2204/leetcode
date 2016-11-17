@@ -22,6 +22,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+        x1 = x2 = 0x7fffffff
+        for num in nums:
+            if num <= x1:
+                x1 = num
+            elif num <= x2:  # x1 < num <= x2
+                x2 = num
+            else:            # x < x2 < num , so it return true
+                return True
+        return False
+
+
+    def increasingTriplet(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
 
         if not nums:
             return False
