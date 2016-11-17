@@ -1,6 +1,6 @@
 
 
-fileName = "    300. Longest Increasing Subsequence   "
+fileName = "    334. Increasing Triplet Subsequence   "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
