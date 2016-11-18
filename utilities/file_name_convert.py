@@ -1,6 +1,6 @@
 
 
-fileName = "    334. Increasing Triplet Subsequence   "
+fileName = "    376. Wiggle Subsequence   "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
