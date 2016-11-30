@@ -31,14 +31,14 @@ class Solution(object):
         visited = []
         for row in range(len(board)):
             visited.append([0]*len(board[0]))
-        reset_visited = copy.deepcopy(visited)
+
         for row in range(len(board)):
             for col in range(len(board[row])):
                 if board[row][col] == word[0]:
                     self.dfs(board,word,visited,row,col,flag)
                 if flag[0]:
                     return True
-                visited = reset_visited
+
         return False
 
     def dfs(self,board,word,visited,row,col,flag):
@@ -67,7 +67,7 @@ class Solution(object):
 
         self.dfs(board,word[1:],visited,row,col+1,flag)
 
-
+        visited[row][col] = 0
 
 if __name__ == '__main__':
     grid = [
@@ -82,5 +82,8 @@ if __name__ == '__main__':
     print Solution().exist(grid,word_2)
     print Solution().exist(grid,word_3)
 
+    grid = [["C","A","A"],["A","A","A"],["B","C","D"]]
+    word_1 = "AAB"
+    print Solution().exist(grid,word_1)
 
 
