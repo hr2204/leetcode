@@ -24,5 +24,26 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        res = []
+        for idx in range(len(nums)):
+            res += self.dfs(nums,idx)
+        res.append(nums)
+        return res
+
+    def dfs(self,nums,num_elem):
+        res = []
+        if num_elem == 0:
+            return [[]]
+        if num_elem == 1:
+            for idx in range(len(nums)):
+                res.append([nums[idx]])
+            return res
+        if num_elem > 1:
+            for idx in range(len(nums)):
+                next_res = self.dfs(nums[idx+1:],num_elem-1)
+                for i in range(len(next_res)):
+                    res.append([nums[idx]]+next_res[i])
+            return res
+
 if __name__ == '__main__':
     print Solution().subsets([1,2,3])
