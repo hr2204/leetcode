@@ -1,6 +1,6 @@
 
 
-fileName = "       40. Combination Sum II               "
+fileName = "       326. Power of Three               "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
