@@ -13,6 +13,16 @@
 # What if the inputs contain unicode characters? How would you adapt your solution to such case?
 
 class Solution(object):
+
+    def isAnagram_two(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        return sorted(s) == sorted(t)
+
+
     def isAnagram(self, s, t):
         """
         :type s: str
