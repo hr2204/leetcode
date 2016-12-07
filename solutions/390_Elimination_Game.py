@@ -1,6 +1,4 @@
-# 390. Elimination Game   Add to List QuestionEditorial Solution  My Submissions
-# Total Accepted: 5262
-# Total Submissions: 14375
+# 390. Elimination Game
 # Difficulty: Medium
 # Contributors: Admin
 # There is a list of sorted integers from 1 to n. Starting from left to right, remove the first number and every other
@@ -26,7 +24,16 @@
 # 6
 
 class Solution(object):
+
+
     def lastRemaining(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        return 1 if n==1 else 2*(n/2 + 1 - self.lastRemaining(n/2));
+
+    def lastRemaining_MLE(self, n):
         """
         :type n: int
         :rtype: int
@@ -42,6 +49,9 @@ class Solution(object):
         if dir == "left":
             self.rec(list[1::2],"right",res)
         if dir == "right":
-            self.rec(list[::-1][1::2][::-1],"left",res)
+            if len(list)%2 == 0:
+                self.rec(list[::2],"left",res)
+            else:
+                self.rec(list[1::2],"left",res)
 if __name__ == '__main__':
-    print Solution().lastRemaining(9)
+    print Solution().lastRemaining(100)
