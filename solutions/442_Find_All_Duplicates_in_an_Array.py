@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# 42. Find All Duplicates in an Array
+# 442. Find All Duplicates in an Array
 # Difficulty: Medium
 # Contributors: shen5630
 # Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
@@ -17,6 +17,19 @@
 
 class Solution(object):
     def findDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        res = []
+        for num in nums:
+            if nums[abs(num)-1]<0:
+                res.append(abs(num))
+            else:
+                nums[abs(num)-1] *= -1
+        return res
+
+    def findDuplicates_extra_space(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
