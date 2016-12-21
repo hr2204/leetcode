@@ -1,6 +1,6 @@
 
 
-fileName = "    414. Third Maximum Number               "
+fileName = "   442. Find All Duplicates in an Array               "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
