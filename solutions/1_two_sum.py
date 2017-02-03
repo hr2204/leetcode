@@ -13,7 +13,24 @@
 # The return format had been changed to zero-based indices. Please read the above updated description carefully.
 
 class Solution(object):
+
+    # o(n) solution
     def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        res = []
+        hash = {}
+        for i in range(len(nums)):
+            if target - nums[i] in hash:
+                return [hash[target - nums[i]],i]
+            hash[nums[i]] = i
+        return [-1,1]
+
+    # o(n^2) solution
+    def twoSum_0(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
