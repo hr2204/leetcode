@@ -32,9 +32,23 @@
 #
 # Because the 4th row is incomplete, we return 3.
 
-
+import math
 class Solution(object):
     def arrangeCoins(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        tmp = int(math.floor(math.sqrt(2*n)))
+        print tmp
+        if (tmp*(tmp+1))<= 2 * n:
+            return tmp
+        return tmp - 1
+
+
+        # return start - 1
+
+    def arrangeCoins_solution_1(self, n):
         """
         :type n: int
         :rtype: int
