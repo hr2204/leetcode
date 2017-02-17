@@ -1,6 +1,6 @@
 
 
-fileName = "  485. Max Consecutive Ones              "
+fileName = "  506. Relative Ranks              "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
