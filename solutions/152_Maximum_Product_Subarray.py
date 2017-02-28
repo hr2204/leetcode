@@ -12,16 +12,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        pos_max = 0
-        neg_max = 0
+        pos_max, neg_max = [], []
+        pos_max.append(nums[0])
+        neg_max.append(nums[0])
+        res = nums[0]
+        for i in range(1,len(nums)):
+            pos_max.append( max(pos_max[i-1]*nums[i],neg_max[i-1]*nums[i],nums[i]) )
+            neg_max.append( min(pos_max[i-1]*nums[i],neg_max[i-1]*nums[i],nums[i]) )
+            res = max(pos_max[i],res)
+        return res
 
-        for idx,num in enumerate(nums):
-            if num > 0:
-                pos_max * num
-            if num = 0:
-
-            if num < 0:
-                neg_max * num
 if __name__ == '__main__':
     nums = [2,3,-2,4]
     print Solution().maxProduct(nums)
