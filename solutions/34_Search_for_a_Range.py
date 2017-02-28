@@ -20,50 +20,42 @@ class Solution(object):
         res = [-1,-1]
         if not nums:
             return res
-        res[0] = self.binary_search_left(nums,target)
-        res[1] = self.binary_search_right(nums,target)
-        return res
 
-    def binary_search_left(self,nums,target):
-        if not nums:
-            return -1
-        start,end = 0, len(nums) - 1
+        start = 0
+        end = len(nums) - 1
+
         while start + 1 < end:
-            mid = start + (end - start)/2
-            if target == nums[mid]:
-                return mid
-            if target > nums[mid]:
+            mid = (start + end)/2
+            if nums[mid]<target:
                 start = mid
             else:
                 end = mid
-        if nums[start] == target:
-            return start
-        if nums[end] == target:
-            return end
-        return -1
 
-    def binary_search_right(self,nums,target):
-        if not nums:
-            return -1
-        start,end = 0, len(nums) - 1
+        if nums[start] == target:
+            leftBound = start
+        elif nums[end] == target:
+            leftBound = end
+        else:
+            return [-1, -1]
+
+        start = leftBound
+        end = len(nums) - 1
+
         while start + 1 < end:
-            mid = start + (end - start)/2
-            if target == nums[mid]:
-                return mid
-            if target > nums[mid]:
+            mid = (start + end)/2
+            if nums[mid]<=target:
                 start = mid
             else:
                 end = mid
-        if nums[start] == target:
-            return start
         if nums[end] == target:
-            return end
-        return -1
+            rightBound = end
+        else:
+            rightBound = start
 
-
+        return [leftBound,rightBound]
 
 
 if __name__ == '__main__':
     nums = [5, 7, 7, 8, 8, 10]
-    print Solution().binary_search(nums,8)
+    print Solution().searchRange(nums,8)
     # print Solution().searchRange(nums,8) == [3,4]
