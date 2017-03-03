@@ -1,6 +1,6 @@
 
 
-fileName = "        69. Sqrt(x)      "
+fileName = "        287. Find the Duplicate Number      "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
