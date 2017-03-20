@@ -15,12 +15,22 @@
 
 class Solution(object):
     def minSubArrayLen(self, s, nums):
-        """
-        :type s: int
-        :type nums: List[int]
-        :rtype: int
-        """
-
+        size = len(nums)
+        start, end, sum = 0, 0, 0
+        bestAns = size + 1
+        while True:
+            if sum < s:
+                if end >= size:
+                    break
+                sum += nums[end]
+                end += 1
+            else:
+                if start > end:
+                    break
+                bestAns = min(end - start, bestAns)
+                sum -= nums[start]
+                start += 1
+        return [0, bestAns][bestAns <= size]
 
 
     def minSubArrayLen_LTE(self, s, nums):
@@ -47,6 +57,6 @@ class Solution(object):
         return min_res
 
 if __name__ == '__main__':
-    list = [1,2,3,4,5]
-    target = 11
+    list = [2,3,1,2,4,3]
+    target = 7
     print Solution().minSubArrayLen(target,list)
