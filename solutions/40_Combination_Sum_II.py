@@ -26,19 +26,20 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        self.dfs(candidates,target,res,[])
 
+        def search(candidates,sum,cur):
+            if sum == target:
+                temp = sorted(cur)
+                if temp not in res:
+                    res.append(temp)
+                return
+            if sum > target:
+                return
+            for i in xrange(len(candidates)):
+                search(candidates[i+1:],sum + candidates[i],cur+[candidates[i]])
+        search(candidates,0,[])
         return res
 
-    def dfs(self,candidates, target,res,cur_list):
-        if sum(cur_list) == target:
-            cur_list.sort()
-            res.append(copy.deepcopy(cur_list))
-        if sum(cur_list) < target:
-            for idx in range(len(candidates)):
-                cur_list.append(candidates[idx])
-                self.dfs(candidates[idx+1:],target,res,cur_list)
-                cur_list.pop()
 
 
 
