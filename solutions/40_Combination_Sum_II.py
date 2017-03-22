@@ -27,6 +27,29 @@ class Solution(object):
         """
         res = []
 
+        candidates.sort()
+        def search(candidates,sum,cur):
+            if sum == target:
+                res.append(cur)
+                return
+            if sum > target:
+                return
+            for i in xrange(len(candidates)):
+                if i > 0 and candidates[i] == candidates[i-1]:
+                    continue
+                search(candidates[i+1:],sum + candidates[i],cur+[candidates[i]])
+        search(candidates,0,[])
+        return res
+
+
+    def combinationSum2_slow(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        res = []
+
         def search(candidates,sum,cur):
             if sum == target:
                 temp = sorted(cur)
