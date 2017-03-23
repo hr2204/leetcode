@@ -15,6 +15,18 @@
 
 class Solution(object):
     def findRepeatedDnaSequences(self, s):
+        pool = set()
+        res = set()
+
+        for i in range(len(s) - 9):
+            if s[i : i + 10] not in pool:
+                pool.add(s[i : i + 10])
+            else:
+                res.add(s[i : i + 10])
+
+        return list(res)
+
+    def findRepeatedDnaSequences(self, s):
         """
         :type s: str
         :rtype: List[str]
