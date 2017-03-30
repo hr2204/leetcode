@@ -43,8 +43,8 @@ class Solution(object):
 
         for i in xrange(length):
             if nums[i]<= mySum:
-                temp = [j for j in xrange(len(dp)) if dp[j]]
-                for k in xrange(len(temp)):
+                temp = [j for j in xrange(len(dp)) if dp[j]] # find all True result from last loop
+                for k in xrange(len(temp)):   # add current number to last result
                     if temp[k] + nums[i] <=mySum:
                         dp[temp[k] + nums[i]] = True
             print dp
