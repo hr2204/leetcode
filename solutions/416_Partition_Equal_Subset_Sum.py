@@ -31,18 +31,30 @@ class Solution(object):
         :rtype: bool
         """
         length = len(nums)
-        mySum =  sum(nums);
+        mySum = sum(nums)
         if mySum % 2 == 1:
             return False
         mySum /= 2
         dp = [False for x in range(mySum+1)]
         dp[0] = True
-        for i in range(0,length):
-            for j in range(mySum, nums[i] - 1, -1):
-                dp[j] |= dp[j - nums[i]]
-                print dp,'|i:',i,'|j:',j,"|j - nums[i]:",j - nums[i]
+        # for i in range(0,length):
+        #     for j in range(mySum, nums[i] - 1, -1):
+        #         dp[j] |= dp[j - nums[i]]
+
+        for i in xrange(length):
+            if nums[i]<= mySum:
+                temp = [j for j in xrange(len(dp)) if dp[j]]
+                for k in xrange(len(temp)):
+                    if temp[k] + nums[i] <=mySum:
+                        dp[temp[k] + nums[i]] = True
+            print dp
+
+                # for j in xrange(len(dp)):
+                #     if dp[j] and j + nums[i] <= mySum:
+                #         dp[j+nums[i]] = True
         return dp[mySum]
 
 
 if __name__ == '__main__':
+    print Solution().canPartition([2,2,3,5])
     print Solution().canPartition([5,4,7,1,5])
