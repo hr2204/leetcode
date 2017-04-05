@@ -18,6 +18,21 @@ from data_structure.list_node import ListNode
 from utilities.linked_list import generate_list, printNode
 
 class Solution(object):
+
+    def swapPairs_dummy(self, head):
+        # Write your code here
+        if head == None or head.next == None:
+            return head
+        dummy = ListNode(0); dummy.next = head
+        p = dummy
+        while p.next and p.next.next:
+            tmp = p.next.next
+            p.next.next = tmp.next
+            tmp.next = p.next
+            p.next = tmp
+            p = p.next.next
+        return dummy.next
+
     def swapPairs(self, head):
         """
         :type head: ListNode
