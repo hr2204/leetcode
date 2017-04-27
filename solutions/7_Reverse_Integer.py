@@ -23,7 +23,6 @@
 #
 
 class Solution(object):
-    class Solution(object):
     def reverse(self, n):
         """
         :type n: int
