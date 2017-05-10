@@ -19,6 +19,18 @@
 # ]
 
 class Solution(object):
+    def subsets2(self, S):
+        def dfs(depth, start, valuelist):
+            res.append(valuelist)
+            if depth == len(S): return
+            for i in range(start, len(S)):
+                dfs(depth+1, i+1, valuelist+[S[i]])
+        S.sort()
+        res = []
+        dfs(0, 0, [])
+        return res
+
+
     def subsets(self, nums):
         """
         :type nums: List[int]
@@ -46,4 +58,4 @@ class Solution(object):
             return res
 
 if __name__ == '__main__':
-    print Solution().subsets([1,2,3])
+    print Solution().subsets2([1,2,3])
