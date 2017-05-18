@@ -1,6 +1,6 @@
 
 
-fileName = "  225. Implement Stack using Queues   "
+fileName = " 232. Implement Queue using Stacks   "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
