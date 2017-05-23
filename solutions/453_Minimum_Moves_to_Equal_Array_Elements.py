@@ -18,8 +18,10 @@
 #
 # [1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
 
+
 class Solution(object):
     def minMoves(self, nums):
+        # [1,3,5,7] (+6) => [7,9,11,7] (+4) => [11,13,11,11] (+2) => [13,13,13,13]
         min_num = min(nums)
         count = 0
         for num in nums:
