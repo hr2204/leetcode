@@ -39,4 +39,4 @@ class Solution(object):
 
 if __name__ == '__main__':
     print Solution().subarraySum([1,1,1],2)
-    print Solution().subarraySum([0, 4, 8, 3, 5, 2, 6, 7, 9, 1],2)
+    print Solution().subarraySum([0, 4, 8, 3, 5, 2, 6, 7, 9, 1],12)
