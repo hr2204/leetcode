@@ -11,8 +11,6 @@
 # The length of the array is in range [1, 20,000].
 # The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
 
-from random import shuffle
-
 class Solution(object):
     def subarraySum(self, nums, k):
         """
@@ -20,21 +18,38 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        sum = nums[0]
-        left, right = 0, 0
-        while True:
-            while sum < k:
-                right += 1
-                sum += nums[right]
+        sum = 0
+        num_map = dict()
+        num_map[0] = 1
+        count = 0
+        for num in nums:
+            sum += num
+            if sum - k in num_map:
+                count += num_map[sum-k]
+            if sum in num_map:
+                num_map[sum] += 1
+            else:
+                num_map[sum] = 1
 
-            while sum > k:
-                sum -= nums[left]
-                left += 1
+        return count
 
-            if sum == k:
-                break
 
-        return right - left + 1
+
+    def subarraySum_LTE(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        count = 0
+        for i in xrange(len(nums)):
+            sum = 0
+            for j in xrange(i,len(nums)):
+                sum += nums[j]
+                if sum == k:
+                    count += 1
+        return count
+
 
 
 if __name__ == '__main__':
