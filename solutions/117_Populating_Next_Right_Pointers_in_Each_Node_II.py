@@ -55,4 +55,3 @@ class Solution:
                     tempQueue.append(queue[i].right)
             queue = tempQueue
 
-if __name__ == '__main__':
