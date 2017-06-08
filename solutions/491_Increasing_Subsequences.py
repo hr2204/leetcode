@@ -19,7 +19,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-
+        dp = set()
+        for n in nums:
+            for y in list(dp):
+                if n >= y[-1]:
+                    dp.add(y + (n,))
+            dp.add((n,))
+        return list(e for e in dp if len(e) > 1)
 
     def findSubsequences_LTE(self, nums):
         """
@@ -29,6 +35,7 @@ class Solution(object):
         if not nums:
             return
         res = []
+        self.res_map = {}
         for i in range(len(nums)):
             cur_list = [nums[i]]
             self.helper(cur_list,nums[i+1:],res)
@@ -40,12 +47,14 @@ class Solution(object):
         for idx,num in enumerate(nums):
             if num >= cur_list[-1]:
                 temp = cur_list + [num]
-                if temp not in res:
+                temp_key = ''.join(map(str, temp))
+                if temp_key not in self.res_map:
                     res.append(temp)
-                self.helper(temp,nums[idx+1:],res)
+                    self.res_map[temp_key] = 1
+                    self.helper(temp,nums[idx+1:],res)
 
 
 
 if __name__ == '__main__':
-    input = [4, 6, 7, 7]
+    input = [1,2,3,1,1]
     print Solution().findSubsequences(input)
