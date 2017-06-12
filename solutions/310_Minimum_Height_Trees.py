@@ -91,6 +91,35 @@ class Solution(object):
                 self.dfs(next_node, node_map, res, checked, cur_list+ [next_node])
 
 
+    def findMinHeightTrees(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        node_map = {}
+
+        for i in xrange(n):
+            node_map[i] = []
+
+        for edge in edges:
+            node1, node2 = edge[0], edge[1]
+            if node1 not in node_map[node2]:
+                node_map[node2].append(node1)
+            if node2 not in node_map[node1]:
+                node_map[node1].append(node2)
+
+        while len(node_map.keys())>2:
+            to_be_del = []
+            for node in node_map:
+                if len(node_map[node]) == 1:
+                    to_be_del.append([node,node_map[node][0]])
+            for node in to_be_del:
+                print node
+                node_map[node[1]].remove(node[0])
+                del node_map[node[0]]
+
+        return node_map.keys()
 
 
 if __name__ == '__main__':
