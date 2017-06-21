@@ -1,6 +1,6 @@
 
 
-fileName = "      599. Minimum Index Sum of Two Lists            "
+fileName = "      624. Maximum Distance in Arrays            "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
