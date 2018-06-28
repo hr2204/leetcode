@@ -94,3 +94,4 @@ ENV/
 .DS_Store
 
 .vscode/
+utilities/file_name_convert.py
