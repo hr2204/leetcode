@@ -21,7 +21,7 @@ class Solution(object):
         res = [1] * len(nums)
         for idx in range(1, len(nums)):
             res[idx] = res[idx - 1] * nums[idx - 1]
-        
+
         temp = 1
         for idx in range(0, len(nums) - 1)[::-1]:
             temp = nums[idx + 1] * temp
