@@ -1,6 +1,6 @@
 
 
-fileName = "   461. Hamming Distance      "
+fileName = "   28. Implement strStr()      "
 fileName = fileName.strip()
 fileName = fileName.replace(" ","_")
 fileName = fileName.replace(".","")
